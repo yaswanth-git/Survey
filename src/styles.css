@@ -1,4 +1,4 @@
-div{
-    display:flex;
+.App{
+    display: flex;
     justify-content: center;
 }

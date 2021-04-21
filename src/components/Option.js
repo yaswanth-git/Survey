@@ -2,7 +2,7 @@ import { useState } from "react";
 import Select from "./Select";
 import Publish from "./Publish";
 const Option = (props) => {
-    const [options, setOptions] = useState([" "]);
+    const [options, setOptions] = useState([""]);
     const [question, setQuestion] = useState(" ");
     const [added, setAdded] = useState(false);
     const [published, setPublished] = useState(false);
@@ -13,7 +13,7 @@ const Option = (props) => {
             question,
             options
         }
-        props.setDom([...props.dom,temp]);
+        props.setDom([...props.dom, temp]);
     }
 
     if (!published) {
@@ -26,7 +26,7 @@ const Option = (props) => {
                     {options.map((option, index) => {
                         return (
                             <div key={index}>
-                                <input type="text" value={option} id={index} onChange={(e) => {
+                                <input type="text" placeholder="enter option" value={option} id={index} onChange={(e) => {
                                     const arr = [...options];
                                     arr[index] = e.target.value;
                                     setOptions(arr);
@@ -60,15 +60,19 @@ const Option = (props) => {
         }
         else {
             return (
-                <Select dom={props.dom} setDom={props.setDom}/>
+                <div className="App">
+                    <Select dom={props.dom} setDom={props.setDom} />
+                </div>
             )
         }
     }
-    else{
-        return(
-            <Publish code={props.dom} />
+    else {
+        return (
+            <div className="App">
+                <Publish code={props.dom} />
+            </div>
         )
-        
+
     }
 
 }

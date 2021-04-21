@@ -1,32 +1,32 @@
 const Publish = (props) => {
     console.log(props);
     return (
-        <>
-        {props.code.map((i,index) => {
-                if (i.type === "2") {
-                    return (
-                            <div key={index}>
-                                <p>{i.question}</p>
-                                {i.options.map((option,idx) => {
+            <ol>
+                {props.code.map((i, index) => {
+                    if (i.type === "2") {
+                        return (
+                            <li key={index}>
+                                <h3>{i.question}</h3>
+                                {i.options.map((option, idx) => {
                                     return <div key={idx}><input name={i.question} type="radio" value={option} /><label htmlFor={option} >{option}</label></div>
                                 })}
-                            </div>
-                    )
-                }
-                else {
-                    return (
-                            <div key={index}>
-                                <p>{i.question}</p>
-                                {i.options.map((option,idx) => {
+                            </li>
+                        )
+                    }
+                    else {
+                        return (
+                            <li key={index}>
+                                <h3>{i.question}</h3>
+                                {i.options.map((option, idx) => {
                                     return <div key={idx}><input name={i.question} type="checkbox" value={option} /><label htmlFor={option}>{option}</label></div>
                                 })}
-                            </div>
-                    )
+                            </li>
+                        )
+                    }
+                })
                 }
-            })
-        }
-        <button onClick={() => alert("end of the project") }>confirm</button>
-        </>
+                <button onClick={() => alert("end of the project")}>confirm</button>
+            </ol>
     )
 
 }

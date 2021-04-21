@@ -1,10 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 import Option from "./Option";
 
 const Select = (props) => {
-    const [init,setInit] = useState("");
-    if(init === ""){
-        return(
+    const [init, setInit] = useState("");
+    if (init === "") {
+        return (
             <div>
                 <select onChange={(e) => {
                     setInit(e.target.value);
@@ -16,14 +16,18 @@ const Select = (props) => {
             </div>
         )
     }
-    else if(init === "single"){
-        return(
-            <Option limit="2" dom={props.dom} setDom={props.setDom}/>
+    else if (init === "single") {
+        return (
+            <div className="App">
+                <Option limit="2" dom={props.dom} setDom={props.setDom} />
+            </div>
         )
     }
-    else{
-        return(
+    else {
+        return (
+            <div className="App">
             <Option limit="4" dom={props.dom} setDom={props.setDom} />
+            </div>
         )
     }
 }
