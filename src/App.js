@@ -7,7 +7,7 @@ const App = (props) => {
     return (
       <div className="App">
         <div>
-          <h1>Magic</h1>
+          <h1>Survey</h1>
           <button onClick={() => setInit("create")}>Create Survey</button><br />
           <button onClick={() => setInit("take")}>Take Survey</button>
         </div>
