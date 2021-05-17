@@ -7,9 +7,9 @@ const App = (props) => {
     return (
       <div className="App">
         <div>
-          <h1>Survey</h1>
-          <button onClick={() => setInit("create")}>Create Survey</button><br />
-          <button onClick={() => setInit("take")}>Take Survey</button>
+          <p className="heading">Survey</p>
+          <div><button className="button" onClick={() => setInit("create")}>Create Survey</button></div>
+          <div><button className="button" onClick={() => setInit("take")}>Take Survey</button></div>
         </div>
       </div>
     );
