@@ -1,5 +1,4 @@
 const Publish = (props) => {
-    console.log(props);
     return (
             <ol>
                 {props.code.map((i, index) => {
