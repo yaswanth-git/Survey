@@ -2,7 +2,8 @@ import { useState } from "react";
 import Select from "./Select";
 import Publish from "./Publish";
 const Option = (props) => {
-    const [options, setOptions] = useState([""]);
+    let num = props.limit === "2"?["",""]:["","","",""]
+    const [options, setOptions] = useState(num);
     const [question, setQuestion] = useState(" ");
     const [added, setAdded] = useState(false);
     const [published, setPublished] = useState(false);
@@ -19,58 +20,64 @@ const Option = (props) => {
     if (!published) {
         if (!added) {
             return (
-                <div>
-                    <input type="text" placeholder="enter your question" onChange={(e) => {
-                        setQuestion(e.target.value);
-                    }} />
-                    {options.map((option, index) => {
-                        return (
-                            <div key={index}>
-                                <input type="text" placeholder="enter option" value={option} id={index} onChange={(e) => {
-                                    const arr = [...options];
-                                    arr[index] = e.target.value;
-                                    setOptions(arr);
-                                }} />
-                                <button onClick={() => {
-                                    const arr = [...options];
-                                    arr.splice(index + 1, 0, "");
-                                    setOptions(arr);
-                                }}>+</button>
-                                <button onClick={() => {
-                                    const arr = [...options];
-                                    if (arr.length !== 1)
-                                        arr.splice(index, 1);
-                                    setOptions(arr);
-                                }}>-</button>
-                            </div>
-                        )
-                    })}
-                    {options.length >= Number(props.limit) ? <>
-                        <button onClick={() => {
-                            add();
-                            setAdded(true);
-                        }}>Add Question</button>
-                        <button onClick={() => {
-                            add();
-                            setPublished(true);
-                        }}>publish</button>
-                    </> : <></>}
+                <div className="parent">
+
+                    <div className='input'>
+                        <input type="text" placeholder="Enter your question" onChange={(e) => {
+                            setQuestion(e.target.value);
+                        }} />
+                    </div>
+                    <p>Options:</p>
+                    <div className="options">
+                        {options.map((option, index) => {
+                            return (
+                                <div key={index}>
+                                    <input type="text" placeholder="Enter option" value={option} id={index} onChange={(e) => {
+                                        const arr = [...options];
+                                        arr[index] = e.target.value;
+                                        setOptions(arr);
+                                    }} />
+                                    <button onClick={() => {
+                                        const arr = [...options];
+                                        arr.splice(index + 1, 0, "");
+                                        setOptions(arr);
+                                    }}>+</button>
+                                    <button onClick={() => {
+                                        const arr = [...options];
+                                        if (arr.length !== 1)
+                                            arr.splice(index, 1);
+                                        setOptions(arr);
+                                    }}>-</button>
+                                </div>
+                            )
+                        })}
+                    </div>
+
+                    <div className="publ">
+                        {options.length >= Number(props.limit) ? <>
+                            <button onClick={() => {
+                                add();
+                                setAdded(true);
+                            }}>Add Question</button>
+                            <button onClick={() => {
+                                add();
+                                setPublished(true);
+                            }}>publish</button>
+                        </> : <></>}
+                    </div>
+
                 </div>
             )
         }
         else {
             return (
-                <div className="App">
-                    <Select dom={props.dom} setDom={props.setDom} />
-                </div>
+                <Select dom={props.dom} setDom={props.setDom} />
             )
         }
     }
     else {
         return (
-            <div className="App">
-                <Publish code={props.dom} />
-            </div>
+            <Publish code={props.dom} />
         )
 
     }
