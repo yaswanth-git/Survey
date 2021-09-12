@@ -7,7 +7,9 @@ const Publish = (props) => {
                             <li key={index}>
                                 <h3>{i.question}</h3>
                                 {i.options.map((option, idx) => {
-                                    return <div key={idx}><input name={i.question} type="radio" value={option} /><label htmlFor={option} >{option}</label></div>
+                                    if(option)
+                                        return <div key={idx}><input name={index} type="radio" value={option} /><label htmlFor={option} >{option}</label></div>
+                                    return null;
                                 })}
                             </li>
                         )
@@ -17,7 +19,9 @@ const Publish = (props) => {
                             <li key={index}>
                                 <h3>{i.question}</h3>
                                 {i.options.map((option, idx) => {
-                                    return <div key={idx}><input name={i.question} type="checkbox" value={option} /><label htmlFor={option}>{option}</label></div>
+                                    if(option)
+                                        return <div key={idx}><input name={index} type="checkbox" value={option} /><label htmlFor={option}>{option}</label></div>
+                                    return null;
                                 })}
                             </li>
                         )

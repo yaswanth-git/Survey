@@ -53,13 +53,13 @@ select{
     font-size: large;
 }
 .options>div>input{
-    width:78%;
+    width:75%;
     height:30px;
     font-size: large;
 }
 .options>div>button{
     width: 10%;
-    height:30px;
+    height:35px;
 }
 .options>div{
     margin-top: 5%;
@@ -82,8 +82,11 @@ ol>button{
     background-color: green;
     justify-content: center;
     border-radius: 10px;
-    width:40%;
-    margin:10%;
+    width:fit-content;
     font-size: large;
     color: white;
+    margin: 10px;
+}
+ol{
+    align-items: center;
 }
