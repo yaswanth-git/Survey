@@ -4,7 +4,7 @@ import Publish from "./Publish";
 const Option = (props) => {
     let num = props.limit === "2"?["",""]:["","","",""]
     const [options, setOptions] = useState(num);
-    const [question, setQuestion] = useState(" ");
+    const [question, setQuestion] = useState("");
     const [added, setAdded] = useState(false);
     const [published, setPublished] = useState(false);
 

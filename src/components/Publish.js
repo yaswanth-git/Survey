@@ -2,6 +2,7 @@ const Publish = (props) => {
     return (
             <ol>
                 {props.code.map((i, index) => {
+                    if(i.question){
                     if (i.type === "2") {
                         return (
                             <li key={index}>
@@ -12,12 +13,13 @@ const Publish = (props) => {
                                     return null;
                                 })}
                             </li>
+                            
                         )
                     }
                     else {
-                        return (
+                        return ( 
                             <li key={index}>
-                                <h3>{i.question}</h3>
+                               <h3>{i.question}</h3>
                                 {i.options.map((option, idx) => {
                                     if(option)
                                         return <div key={idx}><input name={index} type="checkbox" value={option} /><label htmlFor={option}>{option}</label></div>
@@ -26,6 +28,8 @@ const Publish = (props) => {
                             </li>
                         )
                     }
+                }
+                return null;
                 })
                 }
                 <button onClick={() => alert("end of the project")}>confirm</button>
